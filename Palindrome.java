@@ -1,60 +1,39 @@
-import java.util.*; 
 import java.io.*;
+import java.util.*;
 class Pal{
-    int rev;
-    int rem;
-    try
+    int a, rev, rem; 
+    void input()
     {
-        public int insert()
-        {
-            int a;
-            Scanner s= new Scanner(System.in);
-            System.out.println("Enter a number to check whether it is a palindrome: ");
-            a=s.nextInt();
-            return a;
-        }
-        public int reverse(int a)
-        {
-            while(a!=0)
-            {
-                rem=a % 10;
-                rev=rev * 10 + rem;
-                a= a/10;
-            }
-            return rev;
-        }
-        public int palCheck(int a, int rev)
-        {
-            if(a==rev)
-            {
-                return 1;
-            }
-            else{
-                return 0;
-            }
-        }
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the number to be checked: ");
+        a=s.nextInt();
     }
-    catch(Exception e)
+    int palCheck()
     {
-        System.out.println(e);
+        
+        int temp=a;
+        while(temp!=0)
+        {
+            rem=temp%10;
+            rev=rev*10+rem;
+            temp=temp/10;
+        }
+        return rev;
     }
-
 }
 public class Palindrome {
     public static void main(String args[])
     {
-       int a, rev, result;
-       Pal p=new Pal();
-       a = p.insert();
-       rev = p.reverse(a);
-       result=p.palCheck(a, rev);
-        if(result==1)
+        Pal p = new Pal();
+        p.input();
+        int r=p.palCheck();
+        if(p.a==r)
         {
-            System.out.println("The number is a palindrome.");
+            System.out.println("The element is a palindrome.");
         }
-        else{
-            System.out.println("The number not a palindrome.");
-            
+        else
+        {
+            System.out.println("The element is not palindome");
         }
     }
 }
